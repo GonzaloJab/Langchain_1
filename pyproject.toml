@@ -10,6 +10,5 @@ dependencies = [
     "langchain>=0.3.27",
     "langchain-openai>=0.3.32",
     "langchain-cohere>=0.3.0",
-    "langchain-ollama>=0.1.0",
     "python-dotenv>=1.1.1",
 ]
