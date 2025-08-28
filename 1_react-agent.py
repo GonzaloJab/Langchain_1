@@ -3,13 +3,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from langchain import hub
-from langchain.agents.react.agent import create_react_agent
 from langchain.agents import AgentExecutor
-
+from langchain.agents.react.agent import create_react_agent
 from langchain_cohere import ChatCohere
-from langchain_tavily import TavilySearch
 from langchain_ollama import ChatOllama
-
+from langchain_tavily import TavilySearch
 
 tools = [TavilySearch()]
 # llm = ChatOllama(model="gemma3:270m")
@@ -17,19 +15,18 @@ llm = ChatCohere(model="command-r", temperature=0)
 
 react_prompt = hub.pull("hwchase17/react")
 
-agent = create_react_agent(
-                            llm=llm,
-                            tools=tools,
-                            prompt=react_prompt
-                            )
+agent = create_react_agent(llm=llm, tools=tools, prompt=react_prompt)
 
-agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True, handle_parsing_errors=True)
+agent_executor = AgentExecutor(
+    agent=agent, tools=tools, verbose=True, handle_parsing_errors=True
+)
 chain = agent_executor
 
+
 def main():
-    response = chain.invoke(
-        {"input": "Which day is today?"})
+    response = chain.invoke({"input": "Which day is today?"})
     print(response)
+
 
 if __name__ == "__main__":
     main()
