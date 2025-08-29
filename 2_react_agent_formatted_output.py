@@ -21,7 +21,7 @@ tools = [TavilySearch()]
 # llm = ChatOllama(model="gemma3:270m")
 llm = ChatCohere(model="command-r", temperature=0)
 
-react_prompt = hub.pull("hwchase17/react")
+# react_prompt = hub.pull("hwchase17/react")
 
 output_parser = PydanticOutputParser(pydantic_object=AgentResponse)
 
@@ -39,7 +39,7 @@ chain = agent_executor
 
 
 def main():
-    response = chain.invoke({"input": "Which day is today?"})
+    response = chain.invoke({"input": "What is the weather in Tokyo?"})
     print(response)
 
 
