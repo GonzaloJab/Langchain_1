@@ -17,7 +17,6 @@ If you find the answer, output the following format:
 Thought: I now know the final answer
 Final Answer: the final answer to the original input question formatted according to format_instructions: {format_instructions}
 
-
 Begin!
 
 Question: {input}
