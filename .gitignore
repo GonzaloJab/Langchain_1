@@ -202,3 +202,7 @@ tmp/
 .env.production.local
 secrets.json
 config.json
+
+# LangChain specific
+.langsmith/
+langsmith_traces/
